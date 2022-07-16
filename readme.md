@@ -81,6 +81,11 @@ Response:
  "movies": The movie which was inserted
 }
 ```
+```
+Validates:
+- The id must be present.
+- Format for release date must be in YYYY-MM-DD
+```
 4. post /actors - Insert a new actor in to the DB
 ```
 Request: 
@@ -97,6 +102,12 @@ Response:
  "actors": The actor which was inserted
 }
 ```
+```
+Validates:
+- The id must be present.
+- Age must be numeric.
+- Gender should be male or female.
+```
 5. patch /movies/<int:id> - Update a movie already present in the DB
 ```
 Request: 
@@ -110,6 +121,11 @@ Response:
  "success": True,
  "actors": The actor which was inserted
 }
+```
+```
+Validates:
+- The id must be present.
+- Format for release date must be in YYYY-MM-DD
 ```
 6. patch /actors/<int:id> - Update a actor already present in the DB
 ```
@@ -126,6 +142,12 @@ Response:
  "actors": The actor which was updated
 }
 ```
+```
+Validates:
+- The id must be present.
+- Age must be numeric.
+- Gender should be male or female.
+```
 7. delete /movies/<int:id> - Deletes a movie from the DB
 ```
 Request: Empty
@@ -136,7 +158,12 @@ Response:
  "success": True,
  "delete": id
 }
-10. delete /actors/<int:id> - Delets a actor from the DB
+```
+```
+Validates:
+- The id must be present.
+```
+8. delete /actors/<int:id> - Delets a actor from the DB
 ```
 Request: Empty
 ```
@@ -146,6 +173,10 @@ Response:
  "success": True,
  "delete": id
 }
+```
+```
+Validates:
+- The id must be present.
 ```
 
 ```
