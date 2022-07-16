@@ -53,9 +53,9 @@ https://devcenter.heroku.com/articles/getting-started-with-python
 7. delete /movies - Deletes a movie from the DB
 8. delete /actors - Delets a actor from the DB
 
-'''
+```
 Note: All the endpoint are authenticated and you need valid permissions to access each endpoint. See below Auth0 section for more details.
-'''
+```
 
 ## Setup Auth0
 
