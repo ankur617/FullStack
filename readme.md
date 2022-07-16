@@ -228,3 +228,7 @@ https://ankur617.us.auth0.com/authorize?audience=castingagency&response_type=tok
       - Username: ankur124@gmail.com
       - Password: Ankur@123
  3. Once logged in you would get your JWT, which you could use to test the endpoint https://myapp-170418.herokuapp.com
+ 4. To Unit Test the application you need to set below environment variables, with valid JWT:
+  - token_executive_producer
+  - token_casting_assitant
+  - token_casting_director
