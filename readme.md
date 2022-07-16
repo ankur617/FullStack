@@ -45,13 +45,108 @@ https://devcenter.heroku.com/articles/getting-started-with-python
 ## End Points:
 
 1. get /movies - Gets all the movies in the DB
+```
+Request: Empty
+```
+```
+Response:
+{
+ "success": True,
+ "movies": Array with all the movies in the DB
+}
+```
 2. get /actors - Gets all the actors in the DB
+```
+Request: Empty
+```
+```
+Response:
+{
+ "success": True,
+ "actors": Array with all the actors in the DB
+}
+```
 3. post /movies - Insert a new movie in to the DB
+```
+Request: 
+{
+    "title": "Hello New",
+    "release_date": "2022-12-24"
+}
+```
+```
+Response:
+{
+ "success": True,
+ "movies": The movie which was inserted
+}
+```
 4. post /actors - Insert a new actor in to the DB
-5. patch /movies - Update a movie already present in the DB
-6. patch /actors - Update a actor already present in the DB
-7. delete /movies - Deletes a movie from the DB
-8. delete /actors - Delets a actor from the DB
+```
+Request: 
+{
+    "name": "Ankur Agarwal",
+    "age": 31,
+    "gender": "male"
+}
+```
+```
+Response:
+{
+ "success": True,
+ "actors": The actor which was inserted
+}
+```
+5. patch /movies/<int:id> - Update a movie already present in the DB
+```
+Request: 
+{
+    "title": "Hello New New"
+}
+```
+```
+Response:
+{
+ "success": True,
+ "actors": The actor which was inserted
+}
+```
+6. patch /actors/<int:id> - Update a actor already present in the DB
+```
+Request: 
+{
+    "age": 31,
+    "gender": "male"
+}
+```
+```
+Response:
+{
+ "success": True,
+ "actors": The actor which was updated
+}
+```
+7. delete /movies/<int:id> - Deletes a movie from the DB
+```
+Request: Empty
+```
+```
+Response:
+{
+ "success": True,
+ "delete": id
+}
+10. delete /actors/<int:id> - Delets a actor from the DB
+```
+Request: Empty
+```
+```
+Response:
+{
+ "success": True,
+ "delete": id
+}
+```
 
 ```
 Note: All the endpoint are authenticated and you need valid permissions to access each endpoint. See below Auth0 section for more details.
@@ -83,3 +178,22 @@ Note: All the endpoint are authenticated and you need valid permissions to acces
      - can do what Casting Assistant can do and also can `post:movies` `post:actors` `patch:movies` and `patch:actors`
    - Executive Producer
      - can perform all actions
+
+## How to test the application
+
+1. Get the token for each role by logging in through following Auth0 endpoint:
+```
+https://ankur617.us.auth0.com/authorize?audience=castingagency&response_type=token&client_id=VnRPNoiR5Ul6NGTMjEt4xOnVEMvp7Uwo&redirect_uri=http://localhost:8100/tabs/user-page
+```
+
+2. Test Credentials for each role:
+   - Casting Assistant:
+      - Username: ankur124@gmail.com
+      - Password: Ankur@123
+   - Casting Director:
+      - Username: ankur617@gmail.com
+      - Password: Ankur@123
+   - Executive Producer:
+      - Username: ankur124@gmail.com
+      - Password: Ankur@123
+ 3. Once logged in you would get your JWT, which you could use to test the endpoint https://myapp-170418.herokuapp.com
