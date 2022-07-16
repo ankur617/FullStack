@@ -44,11 +44,20 @@ https://devcenter.heroku.com/articles/getting-started-with-python
 
 ## End Points:
 
+1. get /movies - Gets all the movies in the DB
+2. get /actors - Gets all the actors in the DB
+3. post /movies - Insert a new movie in to the DB
+4. post /actors - Insert a new actor in to the DB
+5. patch /movies - Update a movie already present in the DB
+6. patch /actors - Update a actor already present in the DB
+7. delete /movies - Deletes a movie from the DB
+8. delete /actors - Delets a actor from the DB
 
+'''
+Note: All the endpoint are authenticated and you need valid permissions to access each endpoint. See below Auth0 section for more details.
+'''
 
-
-
-### Setup Auth0
+## Setup Auth0
 
 1. Create a new Auth0 Account
 2. Select a unique tenant domain
@@ -58,27 +67,19 @@ https://devcenter.heroku.com/articles/getting-started-with-python
      - Enable RBAC
      - Enable Add Permissions in the Access Token
 5. Create new API permissions:
-   - `get:drinks`
-   - `get:drinks-detail`
-   - `post:drinks`
-   - `patch:drinks`
-   - `delete:drinks`
+   - `get:movies`
+   - `get:actors`
+   - `post:movies`
+   - `post:actors`
+   - `patch:movies`
+   - `patch:actors`
+   - `delete:movies`
+   - `delete:actors`
+   
 6. Create new roles for:
-   - Barista
-     - can `get:drinks-detail`
-   - Manager
+   - Casting Assistant
+     - can `get:movies` and `get:actors`
+   - Casting Director
+     - can do what Casting Assistant can do and also can `post:movies` `post:actors` `patch:movies` and `patch:actors`
+   - Executive Producer
      - can perform all actions
-7. Test your endpoints with [Postman](https://getpostman.com).
-   - Register 2 users - assign the Barista role to one and Manager role to the other.
-   - Sign into each account and make note of the JWT.
-   - Import the postman collection `./starter_code/backend/udacity-fsnd-udaspicelatte.postman_collection.json`
-   - Right-clicking the collection folder for barista and manager, navigate to the authorization tab, and including the JWT in the token field (you should have noted these JWTs).
-   - Run the collection and correct any errors.
-   - Export the collection overwriting the one we've included so that we have your proper JWTs during review!
-
-### Implement The Server
-
-There are `@TODO` comments throughout the `./backend/src`. We recommend tackling the files in order and from top to bottom:
-
-1. `./src/auth/auth.py`
-2. `./src/api.py`
