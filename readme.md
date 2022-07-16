@@ -1,5 +1,15 @@
 # Casting Agency
 
+## Introduction
+
+This app is a casting agency backend which defines two type of model: Movies and Actors, and defines three type of users Casting Asistant, Casting Director and Executive Producer who can access this application and read/modify the Movies and Actors DB according to privileges which each role entails.
+
+The application is already deployed on heroku and testing details are supplied below for anyone to test this project.
+
+## Motivation
+
+I am mainframe developer, and wanted to enhance my skills in fullstack development. Hence this project is made for Capstone project Udacity FullStack Development Programme.
+
 ## Getting Started
 
 ### Installing Dependencies
